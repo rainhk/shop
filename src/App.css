@@ -43,3 +43,33 @@
   background-size : cover;
   background-position : center;
 }
+
+.main-first {
+  height: 340px;
+  width: 340px;
+  background-image: url('./image/storm_galss.webp');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-second {
+  height: 340px;
+  width: 340px;
+  background-image: url('./image/rainy_humidifier.webp');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-third {
+  height: 340px;
+  width: 340px;
+  background-image: url('./image/cloud_lamp.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}

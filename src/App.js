@@ -17,6 +17,26 @@ function App() {
       </Navbar>
 
       <div className='main-bg'></div>
+
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md-4'> 
+            <div className='main-first'/>
+            <h4> Rain storm glass </h4>
+            <p> Cloud shape storm glass </p>
+          </div>
+          <div className='col-md-4'> 
+            <div className='main-second'/> 
+            <h4> Rainy humidifier </h4>
+            <p> Raining humidifer with lamp feature </p>
+          </div>
+          <div className='col-md-4'>
+            <div className='main-third'/>
+            <h4> cloud lamp </h4> 
+            <p> Cloud shape lamp </p>
+          </div>
+        </div> 
+      </div>
     </div>
   );
 }
