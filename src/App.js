@@ -1,8 +1,12 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Navbar, Container, Nav} from 'react-bootstrap'
+import { useState } from 'react';
+import {data} from './data.js';
 
 function App() {
+
+  let [products] = useState(data)
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
