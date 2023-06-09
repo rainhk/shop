@@ -4,9 +4,12 @@ import {Button, Navbar, Container, Nav} from 'react-bootstrap'
 import { useState } from 'react';
 import {data} from './data.js';
 
+
+
 function App() {
 
   let [products] = useState(data)
+
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -24,25 +27,23 @@ function App() {
 
       <div className='container'>
         <div className='row'>
-          <div className='col-md-4'> 
-            <div className='main-first'/>
-            <h4> Rain storm glass </h4>
-            <p> Cloud shape storm glass </p>
-          </div>
-          <div className='col-md-4'> 
-            <div className='main-second'/> 
-            <h4> Rainy humidifier </h4>
-            <p> Raining humidifer with lamp feature </p>
-          </div>
-          <div className='col-md-4'>
-            <div className='main-third'/>
-            <h4> cloud lamp </h4> 
-            <p> Cloud shape lamp </p>
-          </div>
-        </div> 
-      </div>
+            <Modal products={products[0]} i={'first'}></Modal>
+            <Modal products={products[1]} i={'second'}></Modal>
+            <Modal products={products[2]} i={'third'}></Modal>
+        </div>
+      </div> 
     </div>
   );
+}
+
+function Modal(props) {
+  return (
+    <div className='col-md-4'>
+      <div className={'main-' + props.i }/>
+        <h4> {props.products.title} </h4>
+        <p> {props.products.content} </p>
+    </div>
+  )
 }
 
 export default App;

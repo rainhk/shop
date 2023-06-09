@@ -1,22 +1,22 @@
 let data = [
     {
       id : 0,
-      title : "White and Black",
-      content : "Born in France",
+      title : "Rain storm glass",
+      content : "Cloud shape storm glass",
       price : 120000
     },
   
     {
       id : 1,
-      title : "Red Knit",
-      content : "Born in Seoul",
+      title : "Rainy humidifier",
+      content : "Raining humidifer with lamp feature",
       price : 110000
     },
   
     {
       id : 2,
-      title : "Grey Yordan",
-      content : "Born in the States",
+      title : "cloud lamp",
+      content : "Cloud shape lamp",
       price : 130000
     }
   ]
