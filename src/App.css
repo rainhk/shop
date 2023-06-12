@@ -44,7 +44,7 @@
   background-position : center;
 }
 
-.main-first {
+.main-1 {
   height: 340px;
   width: 340px;
   background-image: url('./image/storm_galss.webp');
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
 }
 
-.main-second {
+.main-2 {
   height: 340px;
   width: 340px;
   background-image: url('./image/rainy_humidifier.webp');
@@ -64,7 +64,7 @@
   flex-wrap: wrap;
 }
 
-.main-third {
+.main-3 {
   height: 340px;
   width: 340px;
   background-image: url('./image/cloud_lamp.jpg');

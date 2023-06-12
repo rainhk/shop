@@ -27,9 +27,13 @@ function App() {
 
       <div className='container'>
         <div className='row'>
-            <Modal products={products[0]} i={'first'}></Modal>
-            <Modal products={products[1]} i={'second'}></Modal>
-            <Modal products={products[2]} i={'third'}></Modal>
+            {
+              products.map((a, i)=>{
+                return(
+                  <Modal products={products[i]} i={i+1}></Modal>
+                )
+              })
+            }
         </div>
       </div> 
     </div>
