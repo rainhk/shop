@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Navbar, Container, Nav} from 'react-bootstrap'
 import { useState } from 'react';
 import {data} from './data.js';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import About from './components';
 
 
@@ -11,6 +11,7 @@ import About from './components';
 function App() {
 
   let [products] = useState(data)
+  let navigate = useNavigate();
 
   return (
     <div className="App">
@@ -19,11 +20,13 @@ function App() {
         <Container>
         <Navbar.Brand href="#home">Shopping mall</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/"> Home </Nav.Link>
-          <Nav.Link href="/about"> About </Nav.Link>
+          <Nav.Link onClick={()=> { navigate('/home')}}> Home </Nav.Link>
+          <Nav.Link onClick={()=> { navigate('/about')}}> About </Nav.Link>
         </Nav>
         </Container>
       </Navbar>
+
+
 
     <Routes>
       <Route path='/' element={
@@ -41,14 +44,27 @@ function App() {
         </div>
       </div> 
          </div>}/>
-      <Route path='/about' element={
-        <div> 
-          <About />
-        </div>}/>
+      <Route path='/about' element={<About/>}/>
+
+      <Route path='/info' element={<Info/>}>
+        <Route path='location' element = {<div> fdsa </div>} />
+      </Route>
+      
+
+      <Route path='*' element={<div> Page does not exist </div>} />
     </Routes>
 
     </div>
   );
+}
+
+function Info(){
+  return (
+    <div>
+      <h4> company info </h4>
+      <Outlet></Outlet>
+    </div>
+  )
 }
 
 function Modal(props) {
