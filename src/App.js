@@ -7,6 +7,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './components';
 
 // check commit user
+// nooo committed with wrong account all the time ):
 
 
 function App() {
