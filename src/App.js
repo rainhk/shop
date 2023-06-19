@@ -49,6 +49,11 @@ function App() {
       <Route path='/info' element={<Info/>}>
         <Route path='location' element = {<div> fdsa </div>} />
       </Route>
+
+      <Route path='/event' element={<Event/>}>
+        <Route path='one' element={<div> Receive 80% coupon </div>}/>
+        <Route path='two' element={<div> Receive 20% coupon </div>}/>
+      </Route>
       
 
       <Route path='*' element={<div> Page does not exist </div>} />
@@ -56,6 +61,15 @@ function App() {
 
     </div>
   );
+}
+
+function Event(){
+  return (
+    <div>
+      <h4> Today's event </h4>
+      <Outlet></Outlet>
+    </div>
+  )
 }
 
 function Info(){
