@@ -4,7 +4,7 @@ import {Button, Navbar, Container, Nav} from 'react-bootstrap'
 import { useState } from 'react';
 import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import About from './components';
+import Detail from './components';
 
 
 
@@ -29,7 +29,7 @@ function App() {
 
 
     <Routes>
-      <Route path='/' element={
+      <Route path='/home' element={
       <div> 
         <div className='main-bg'></div>
         <div className='container'>
@@ -37,16 +37,16 @@ function App() {
             {
               products.map((a, i)=>{
                 return(
-                  <Modal products={products[i]} i={i+1}></Modal>
+                  <Modal products={products[i]} i={i}></Modal>
                 )
               })
             }
         </div>
       </div> 
          </div>}/>
-      <Route path='/about' element={<About/>}/>
+      <Route path='/detail/:id' element={<Detail products = {products} />}/>
 
-      <Route path='/info' element={<Info/>}>
+      <Route path='/about' element={<About/>}>
         <Route path='location' element = {<div> fdsa </div>} />
       </Route>
 
@@ -72,7 +72,7 @@ function Event(){
   )
 }
 
-function Info(){
+function About(){
   return (
     <div>
       <h4> company info </h4>
