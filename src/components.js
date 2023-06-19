@@ -4,7 +4,13 @@ function Detail(props) {
 
     let {id} = useParams();
 
-    return (
+    if (id > props.products.length){
+        return (
+            <div> invalid page </div>
+        )
+    }
+
+    else return (
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
