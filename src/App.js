@@ -6,13 +6,20 @@ import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './components';
 
-// check commit user
-// nooo committed with wrong account all the time ):
-
 
 function App() {
 
-  let [products] = useState(data)
+  let [products] = useState(data.sort(function(a,b){
+    var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase()
+    if (titleA < titleB){
+      return -1
+    }
+    if (titleA > titleB){
+      return 1
+    }
+    return 0
+  }));
+
   let navigate = useNavigate();
 
   return (
@@ -28,8 +35,6 @@ function App() {
         </Container>
       </Navbar>
 
-
-
     <Routes>
       <Route path='/home' element={
       <div> 
@@ -39,7 +44,7 @@ function App() {
             {
               products.map((a, i)=>{
                 return(
-                  <Modal products={products[i]} i={i}></Modal>
+                  <Modal products={products[i]} i={a.id}></Modal>
                 )
               })
             }
