@@ -6,6 +6,7 @@ import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './components';
 
+// styled components
 
 function App() {
 
