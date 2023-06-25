@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Detail(props) {
+
+    let [alert, setAlert] = useState(true);
+
+    useEffect(()=>{
+        // use for complicated calculation
+        // get data from server
+
+        setTimeout(()=>{setAlert(false)}, 5000)
+    })
 
     let {id} = useParams();
 
@@ -12,6 +22,7 @@ function Detail(props) {
 
     else return (
         <div className="container">
+            {alert && <div id= 'alert' className="alert alert-warning"> Buy in 5 seconds for 90% discount!! </div>}
             <div className="row">
                 <div className="col-md-6">
                 <div className={'main-' + (props.products[id].id) } />
@@ -25,6 +36,8 @@ function Detail(props) {
             </div>
         </div>
     )
+
+    
 }
 
 export default Detail;

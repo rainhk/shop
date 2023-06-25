@@ -4,7 +4,7 @@ import {Button, Navbar, Container, Nav} from 'react-bootstrap'
 import { useState } from 'react';
 import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Detail from './components';
+import Detail from './details';
 
 // styled components
 
