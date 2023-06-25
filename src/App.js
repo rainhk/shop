@@ -10,7 +10,13 @@ import Detail from './components';
 
 function App() {
 
-  let [products] = useState(data.sort(function(a,b){
+  let [products, productschange] = useState(data);
+
+  let navigate = useNavigate();
+
+  // sort by item name
+  function ItemSort(){
+  let newProducts = [...data].sort(function(a,b){
     var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase()
     if (titleA < titleB){
       return -1
@@ -19,9 +25,9 @@ function App() {
       return 1
     }
     return 0
-  }));
-
-  let navigate = useNavigate();
+  });
+  productschange(newProducts);
+  }
 
   return (
     <div className="App">
@@ -40,6 +46,7 @@ function App() {
       <Route path='/home' element={
       <div> 
         <div className='main-bg'></div>
+        <button onClick={ItemSort} className='btn btn-danger'> sort </button>
         <div className='container'>
         <div className='row'>
             {
@@ -70,6 +77,7 @@ function App() {
     </div>
   );
 }
+
 
 function Event(){
   return (
