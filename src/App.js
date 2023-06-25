@@ -97,10 +97,13 @@ function About(){
   )
 }
 
+// breaks after sorting
 function Modal(props) {
   return (
     <div className='col-md-4'>
-      <div className={'main-' + props.i }/>
+      <Link to={"/detail/" + props.i}>
+        <div className={'main-' + props.i }/>
+      </Link>
         <h4> {props.products.title} </h4>
         <p> {props.products.content} </p>
     </div>
