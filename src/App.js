@@ -5,6 +5,7 @@ import { useState } from 'react';
 import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './details';
+import axios from 'axios';
 
 // styled components
 
@@ -58,6 +59,11 @@ function App() {
             }
         </div>
       </div> 
+      <button onClick={()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((data)=>{data})
+        .catch(()=>{})
+      }}> button </button>
          </div>}/>
       <Route path='/detail/:id' element={<Detail products = {products} />}/>
 
