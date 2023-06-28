@@ -60,10 +60,22 @@ function App() {
         </div>
       </div> 
       <button onClick={()=>{
+        // loading
+
+        // count button to stop duplicate
         axios.get('https://codingapple1.github.io/shop/data2.json')
-        .then((data)=>{data})
-        .catch(()=>{})
-      }}> button </button>
+        .then((items)=>{
+          let newProducts = [...products, ...items.data];
+          productschange(newProducts);
+          // hide loading
+
+          // axios.post()
+          // send data to server
+        })
+        .catch(()=>{
+          // hide loading
+          alert("failed to add more items")})
+      }}> Update items </button>
          </div>}/>
       <Route path='/detail/:id' element={<Detail products = {products} />}/>
 

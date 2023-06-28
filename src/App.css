@@ -73,3 +73,31 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.main-3 {
+  height: 340px;
+  width: 340px;
+  background-image: url('./image/cloud_lamp.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main-4 {
+  height: 340px;
+  width: 340px;
+  background-image: url('./image/cloud_lamp.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main-5 {
+  height: 340px;
+  width: 340px;
+  background-image: url('./image/cloud_lamp.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+}
