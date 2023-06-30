@@ -67,13 +67,23 @@ function Detail(props) {
 
 
 function TabInfo(props){
-    if(props.tab==0){
-        return <div>info 0</div>
-    } else if(props.tab == 1){
-        return <div>info 1</div>
-    } else if(props.tab == 2){
-        return <div>info 2</div>
-    }
+
+    let [fade, setFade] = useState('');
+    
+    useEffect(()=>{
+        let fadeout = setTimeout(()=>{setFade('end')}, 100)
+        
+        return ()=>{
+            clearTimeout(fadeout)
+            setFade('')
+        }
+
+    }, [props.tab])
+
+    // ` back tick
+    return <div className= {`start ${fade}` }>
+        {[ <div>info0</div>, <div>info1</div>, <div>info2</div> ][props.tab]}
+        </div>
 
     // simple way
     // return [ <div>info0</div>, <div>info1</div>, <div>info2</div> ][tab]
