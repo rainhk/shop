@@ -22,13 +22,12 @@ function Detail(props) {
 
     let {id} = useParams();
 
-    
-
     if (id > props.products.length){
         return (
             <div> invalid page </div>
         )
     }
+
 
     else return (
         <div className="container">
@@ -60,13 +59,14 @@ function Detail(props) {
                 <Nav.Link onClick={()=>{setTab(2)}} eventKey="link2">버튼2</Nav.Link>
                 </Nav.Item>
             </Nav>
-            <TabInfo tab = {tab}/>
+            <TabInfo tab = {tab} products = {props.products}/>
+            
         </div>
         
     )
 
 
-function TabInfo(props){
+function TabInfo({tab, products}){
 
     let [fade, setFade] = useState('');
     
@@ -78,11 +78,11 @@ function TabInfo(props){
             setFade('')
         }
 
-    }, [props.tab])
+    }, [tab])
 
     // ` back tick
     return <div className= {`start ${fade}` }>
-        {[ <div>info0</div>, <div>info1</div>, <div>info2</div> ][props.tab]}
+        {[ <div> {products[0].title} </div>, <div>info1</div>, <div>info2</div> ][tab]}
         </div>
 
     // simple way

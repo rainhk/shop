@@ -77,6 +77,7 @@ function App() {
           alert("failed to add more items")})
       }}> Update items </button>
          </div>}/>
+        
       {/* add loading feature */}
       <Route path='/detail/:id' element={<Detail products = {products} />}/>
 
