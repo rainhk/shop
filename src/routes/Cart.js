@@ -18,6 +18,7 @@ function Cart(){
                     </tr>
                 </thead>
                 {
+                    // show all items on cart site
                     items.map((a, i)=>{
                         return(
                             <CartItems items={items[i]} i={i}></CartItems>
