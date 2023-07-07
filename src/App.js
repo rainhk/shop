@@ -4,8 +4,9 @@ import {Button, Navbar, Container, Nav} from 'react-bootstrap'
 import { useState } from 'react';
 import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
-import Detail from './details';
+import Detail from './routes/details';
 import axios from 'axios';
+import Cart from './routes/Cart';
 
 // styled components
 
@@ -80,6 +81,8 @@ function App() {
         
       {/* add loading feature */}
       <Route path='/detail/:id' element={<Detail products = {products} />}/>
+
+      <Route path='/cart' element={<Cart/>}></Route>
 
       <Route path='/about' element={<About/>}>
         <Route path='location' element = {<div> fdsa </div>} />
