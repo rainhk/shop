@@ -37,7 +37,10 @@ let cartItems = createSlice({
             })
         },
         addItem(state, item){
-
+            state.push(item)
+            // cart site keep reset to inital value
+            // fix this
+            console.log(state[2])
         }
     }
 })

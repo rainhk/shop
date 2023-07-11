@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addItem} from '../store'
 
 function Detail(props) {
 
     let [alert, setAlert] = useState(true);
     let [tab, setTab] = useState(0);
+
+    let items = useSelector((state)=> state.cartItems)
+    let dispatch = useDispatch();
 
     useEffect(()=>{
         // use for complicated calculation
@@ -44,7 +49,10 @@ function Detail(props) {
                 <p>${props.products[id].price}</p>
                 <Alert/>
                 <div className="col-md-6"></div>
-                <button className="btn btn-danger">주문하기</button> 
+                <button className="btn btn-danger" onClick={()=>{
+                        dispatch(addItem(props.products[id]))
+                    }
+                }>주문하기</button> 
                 </div>
             </div>
 
