@@ -19,7 +19,7 @@ function App() {
   // sort by item name
   function ItemSort(){
   let newProducts = [...data].sort(function(a,b){
-    var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase()
+    var titleA = a.name.toLowerCase(), titleB = b.name.toLowerCase()
     if (titleA < titleB){
       return -1
     }
@@ -40,6 +40,7 @@ function App() {
         <Nav className="me-auto">
           <Nav.Link onClick={()=> { navigate('/home')}}> Home </Nav.Link>
           <Nav.Link onClick={()=> { navigate('/about')}}> About </Nav.Link>
+          <Nav.Link onClick={()=> { navigate('/cart')}}> Cart </Nav.Link>
         </Nav>
         </Container>
       </Navbar>
@@ -127,7 +128,7 @@ function Modal(props) {
       <Link to={"/detail/" + props.i}>
         <div className={'main-' + props.i }/>
       </Link>
-        <h4> {props.products.title} </h4>
+        <h4> {props.products.name} </h4>
         <p> {props.products.content} </p>
     </div>
   )

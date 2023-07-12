@@ -30,17 +30,11 @@ let cartItems = createSlice({
     ],
     reducers : {
         changeStock(state, id){
-            state.map((a, i)=>{
-                if(state[i].id == id.payload){
-                    state[i].count += 1
-                }
-            })
+            let index = state.findIndex((a)=>{return a.id == id.payload })
+            state[index].count++
         },
         addItem(state, item){
-            state.push(item)
-            // cart site keep reset to inital value
-            // fix this
-            console.log(state[2])
+            state.push(item.payload)
         }
     }
 })

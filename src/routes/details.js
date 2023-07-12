@@ -44,13 +44,13 @@ function Detail(props) {
                 <div className={'main-' + (props.products[id].id) } />
                 </div>
                 <div className="col-md-6">
-                <h4 className="pt-5"> {props.products[id].title} </h4>
+                <h4 className="pt-5"> {props.products[id].name} </h4>
                 <p>{props.products[id].content}</p>
                 <p>${props.products[id].price}</p>
                 <Alert/>
                 <div className="col-md-6"></div>
                 <button className="btn btn-danger" onClick={()=>{
-                        dispatch(addItem(props.products[id]))
+                        dispatch(addItem({id: props.products[id].id, name: props.products[id].name, count: 1}))
                     }
                 }>주문하기</button> 
                 </div>
@@ -90,7 +90,7 @@ function TabInfo({tab, products}){
 
     // ` back tick
     return <div className= {`start ${fade}` }>
-        {[ <div> {products[0].title} </div>, <div>info1</div>, <div>info2</div> ][tab]}
+        {[ <div> {products[0].name} </div>, <div>info1</div>, <div>info2</div> ][tab]}
         </div>
 
     // simple way
