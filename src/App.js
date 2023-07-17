@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Navbar, Container, Nav} from 'react-bootstrap'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {data} from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/details';
@@ -15,6 +15,17 @@ function App() {
   let [products, productschange] = useState(data);
 
   let navigate = useNavigate();
+
+  useEffect(()=>{
+    try {
+      localStorage.getItem('history')
+    } catch (error) {
+      localStorage.setItem('history', JSON.stringify([]));
+    }
+    // localStorage.setItem('history', JSON.stringify([]));
+  }, [])
+  
+
 
   // sort by item name
   function ItemSort(){
@@ -81,6 +92,7 @@ function App() {
          </div>}/>
         
       {/* add loading feature */}
+      
       <Route path='/detail/:id' element={<Detail products = {products} />}/>
 
       <Route path='/cart' element={<Cart/>}></Route>

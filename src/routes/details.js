@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import { addItem} from '../store'
 
 function Detail(props) {
@@ -10,6 +10,7 @@ function Detail(props) {
     let [tab, setTab] = useState(0);
 
     let items = useSelector((state)=> state.cartItems)
+
     let dispatch = useDispatch();
 
     useEffect(()=>{
@@ -26,6 +27,17 @@ function Detail(props) {
     }, [])
 
     let {id} = useParams();
+
+    let pageItem = props.products.find(x => x.id == id);
+
+    useEffect(()=>{
+        let history = localStorage.getItem("history")
+        history = JSON.parse(history)
+        history.push(pageItem.id)
+        console.log(history)
+        localStorage.setItem("history", JSON.stringify(history))
+    }, [])
+    
 
     if (id > props.products.length){
         return (
