@@ -7,6 +7,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/details';
 import axios from 'axios';
 import Cart from './routes/Cart';
+import { useQuery } from 'react-query';
 
 // styled components
 
@@ -43,6 +44,13 @@ function App() {
   productschange(newProducts);
   }
 
+  let result = useQuery('username', ()=>{
+    return axios.get('https://codingapple1.github.io/userdata.json')
+    .then((a)=>{
+      return a.data
+    })
+  })
+
   return (
     <div className="App">
 
@@ -53,6 +61,11 @@ function App() {
           <Nav.Link onClick={()=> { navigate('/home')}}> Home </Nav.Link>
           <Nav.Link onClick={()=> { navigate('/about')}}> About </Nav.Link>
           <Nav.Link onClick={()=> { navigate('/cart')}}> Cart </Nav.Link>
+        </Nav>
+        <Nav className='ms-auto' style={{color:"white"}}> 
+        {result.isLoading && "Loading"}
+        {result.error && "error"}
+        {result.data && result.data.name}
         </Nav>
         </Container>
       </Navbar>
