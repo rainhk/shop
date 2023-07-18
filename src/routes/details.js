@@ -33,6 +33,7 @@ function Detail(props) {
     useEffect(()=>{
         let history = localStorage.getItem("history")
         history = JSON.parse(history)
+        history = history.slice(1, 5)
         history.push(pageItem.id)
         console.log(history)
         localStorage.setItem("history", JSON.stringify(history))

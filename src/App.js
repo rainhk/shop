@@ -25,7 +25,8 @@ function App() {
     // localStorage.setItem('history', JSON.stringify([]));
   }, [])
   
-
+  let history = localStorage.getItem('history');
+  history = JSON.parse(history);
 
   // sort by item name
   function ItemSort(){
@@ -60,7 +61,18 @@ function App() {
       <Route path='/home' element={
       <div> 
         <div className='main-bg'></div>
+        <div className='container'>
+        <div className='alignleft'>
+          {
+            history.toReversed().map((a, i)=>{
+              return(
+                <div>{a}</div>
+              )
+            })
+          }
+        </div>
         <button onClick={ItemSort} className='btn btn-danger'> sort </button>
+        </div>
         <div className='container'>
         <div className='row'>
             {
